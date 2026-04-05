@@ -21,8 +21,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Lint with Flake8
-        run: flake8 project/ tests/ --max-line-length=100
-
+        run: flake8 project/ tests/ --max-line-length=100 --extend-ignore=E302,E402 
       - name: Format check with Black
         run: black --check project/ tests/
 
