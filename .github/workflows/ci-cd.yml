@@ -21,13 +21,15 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Lint with Flake8
-        run: flake8 project/ tests/ --max-line-length=100 --extend-ignore=E302,E402 
+        run: flake8 project/ tests/ --max-line-length=100 --extend-ignore=E302,E402
+
       - name: Format check with Black
         run: black --check project/ tests/
 
       - name: Run tests with coverage
         run: pytest --cov=project --cov-report=xml --cov-report=term
-        - name: SonarCloud Scan
+
+      - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
