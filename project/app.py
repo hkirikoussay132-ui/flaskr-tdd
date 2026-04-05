@@ -14,6 +14,7 @@ from flask import (
     jsonify,
 )
 from flask_sqlalchemy import SQLAlchemy
+from prometheus_flask_exporter import PrometheusMetrics
 
 
 basedir = Path(__file__).resolve().parent
@@ -34,6 +35,7 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 # create and initialize a new Flask app
 app = Flask(__name__)
+metrics = PrometheusMetrics(app)
 # load the config
 app.config.from_object(__name__)
 # init sqlalchemy
