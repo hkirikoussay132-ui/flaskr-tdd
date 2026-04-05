@@ -28,13 +28,3 @@ jobs:
 
       - name: Run tests with coverage
         run: pytest --cov=project --cov-report=xml --cov-report=term
-
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v5
-        with:
-          args: >
-            -Dsonar.projectKey=hkirikoussay132-ui_flaskr-tdd
-            -Dsonar.organization=hkirikoussay132-ui
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: https://sonarcloud.io
