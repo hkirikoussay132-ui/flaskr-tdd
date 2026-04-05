@@ -31,10 +31,10 @@ jobs:
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: https://sonarcloud.io
-           with:
+        with:
           args: >
             -Dsonar.projectKey=hkirikoussay132-ui_flaskr-tdd
             -Dsonar.organization=hkirikoussay132-ui
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: https://sonarcloud.io
